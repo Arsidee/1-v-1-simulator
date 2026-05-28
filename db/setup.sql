@@ -1,35 +1,19 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS characters;
 
-CREATE TABLE users (
+CREATE TABLE characters (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  first_name VARCHAR(255),
-  last_name VARCHAR(255),
-  age INT,
-  weight FLOAT,
-  smoker BOOLEAN
-);
-
-CREATE TABLE players (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  username VARCHAR(255),
-  level INT,
+  character_name VARCHAR(255),
   hp INT,
   attack INT,
-  defense INT
+  defense INT,
+  speed INT
 );
 
-INSERT INTO users (first_name, last_name, age, weight, smoker)
-VALUES ('John', 'Doe', 35, 183.7, false);
+INSERT INTO characters (character_name, hp, attack, defense, speed)
+VALUES ('Shect', 100, 30, 15, 20);
 
-INSERT INTO users (first_name, last_name, age, weight, smoker)
-VALUES ('Jane', 'Doe', 33, 155.1, false);
+INSERT INTO characters (character_name, hp, attack, defense, speed)
+VALUES ('Shalinth', 100, 25, 20, 18);
 
-INSERT INTO players (username, level, hp, attack, defense)
-VALUES ('Shect', 70, 1000, 120, 80);
-
-INSERT INTO players (username, level, hp, attack, defense)
-VALUES ('Shalinth', 70, 1000, 100, 100);
-
-INSERT INTO players (username, level, hp, attack, defense)
-VALUES ('Valize', 70, 1000, 90, 125);
+INSERT INTO characters (character_name, hp, attack, defense, speed)
+VALUES ('Valize', 100, 20, 25, 22);
