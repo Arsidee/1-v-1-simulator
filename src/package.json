@@ -1,0 +1,17 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "Description",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "DEBUG=app:* nodemon --legacy-watch app.js"
+  }
+}

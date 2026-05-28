@@ -1,0 +1,33 @@
+services:
+  app:
+    image: node:18.15.0
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/home/node/app
+    extra_hosts: # For Linux
+      - host.docker.internal:host-gateway
+    tty: true
+    expose:
+      - 3000
+    command: "npm run dev"
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: super
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+      # Uncomment the following line to enable DB persistence
+      # - postgres:/var/lib/postgresql/data
+
+# Uncomment the following lines to enable DB persistence across container restarts
+# volumes:
+  # postgres:
